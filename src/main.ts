@@ -73,7 +73,7 @@ function renderRecords(): void {
   records.replaceChildren(
     el('p', 'ЛИЧНЫЙ ТОП–10', 'eyebrow'),
     el('h2', 'Лучшие решения'),
-    el('p', `${settings.length} цифры · основание ${settings.base}`, 'muted'),
+    el('p', `Длина: ${settings.length} · основание ${settings.base}`, 'muted'),
   );
   const list = loadRecords(settings);
   if (!list.length) {
@@ -126,7 +126,7 @@ function settingsControls(locked: boolean): HTMLElement {
   const length = el('select');
   length.setAttribute('aria-label', 'Длина числа');
   [2, 3, 4, 5, 6].forEach((value) => {
-    const option = el('option', `${value} цифр`);
+    const option = el('option', `Цифр: ${value}`);
     option.value = String(value);
     option.disabled = value > settings.base;
     length.append(option);
@@ -206,17 +206,14 @@ function renderRound(): void {
   if (current.status === 'won') {
     panel.append(
       el('h2', `${current.secret.toUpperCase()} — точно!`),
-      el(
-        'p',
-        `Вы нашли число за ${current.history.length} попыток. Отличная работа.`,
-      ),
+      el('p', `Число найдено. Количество попыток: ${current.history.length}.`),
       message,
     );
   } else {
     const form = el('form');
     const label = el(
       'label',
-      `Ваша гипотеза · ${settings.length} уникальные цифры`,
+      `Ваша гипотеза · уникальных цифр: ${settings.length}`,
     );
     const input = el('input');
     input.name = 'guess';
