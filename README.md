@@ -1,3 +1,48 @@
 # Быки и коровы
 
-Учебный проект на TypeScript. Реализация находится в ветке `bulls-and-cows`.
+Игра на TypeScript с функциональным ядром, иммутабельной историей и локальными рекордами.
+
+## Ссылки
+
+- [Приложение](https://katymist.github.io/bulls-and-cows-demo/)
+- [Архитектура и Big O](https://github.com/KatyMist/Bulls_and_Cows/blob/bulls-and-cows/DESIGN.md)
+- [Pull Request для проверки](https://github.com/KatyMist/Bulls_and_Cows/pull/1)
+- [Исходный код](https://github.com/KatyMist/Bulls_and_Cows/tree/bulls-and-cows)
+- Рабочая ветка: `bulls-and-cows`; `main` содержит только README и .gitignore.
+
+## Запуск
+
+Нужен Node.js 22.12+ и npm.
+
+```sh
+git clone --branch bulls-and-cows https://github.com/KatyMist/Bulls_and_Cows.git
+cd Bulls_and_Cows
+npm ci
+npm run build
+npm start
+```
+
+Откройте http://localhost:8080. Для перекомпиляции при редактировании запустите `npm run dev` в другом терминале. HTML загружает ES-модули из dist, сборщик не используется. Открытие index.html через file:// не поддерживается браузерными ограничениями модулей.
+
+## Проверки
+
+```sh
+npm test
+npm run lint
+npm run typecheck
+npm run format:check
+```
+
+`npm run format` форматирует файлы. 65 тестов покрывают пять функций ядра, неизменяемость истории, победу, повторные попытки, сортировку рекордов и ошибки localStorage. Хуки устанавливаются через prepare при npm ci.
+
+## Игра
+
+Выберите bin/oct/dec/hex и длину 2–6. Для bin доступна только длина 2. После старта настройки заблокированы. Цифры уникальны, ведущий ноль разрешён, регистр hex не важен. Повторная попытка не увеличивает счётчик. Рекорды — топ-10 отдельно для каждой пары длины/основания: сначала меньше попыток, затем меньше время. Данные хранятся в текущем браузере; приватный режим и запрет localStorage могут ограничить сохранение.
+
+## Публикация
+
+Исходники и TDD-история хранятся в приватном Bulls_and_Cows. Репозиторий bulls-and-cows-demo содержит только собранные HTML/CSS/JS для общедоступного GitHub Pages. Для обновления: npm run build, скопировать index.html, style.css и dist/ в репозиторий деплоя. Открытый JavaScript — необходимая часть клиентского приложения; бэкенда нет.
+
+## Сдача
+
+PR из bulls-and-cows в main содержит ссылки, TDD-коммиты и фактический чек-лист проверки. Не сливайте его до проверки. Ссылку на PR нужно вручную отправить в RS App → Cross-check → Submit. Проверяющим необходим доступ к приватному репозиторию.
