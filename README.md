@@ -5,7 +5,9 @@
 ## Ссылки
 
 - [Приложение](https://katymist.github.io/bulls-and-cows-demo/)
-- [Архитектура и Big O](DESIGN.md)
+- [Архитектура и Big O](https://github.com/KatyMist/Bulls_and_Cows/blob/bulls-and-cows/DESIGN.md)
+- [Pull Request для проверки](https://github.com/KatyMist/Bulls_and_Cows/pull/1)
+- [Исходный код](https://github.com/KatyMist/Bulls_and_Cows/tree/bulls-and-cows)
 - Рабочая ветка: `bulls-and-cows`; `main` содержит только README и .gitignore.
 
 ## Запуск
@@ -13,6 +15,8 @@
 Нужен Node.js 22.12+ и npm.
 
 ```sh
+git clone --branch bulls-and-cows https://github.com/KatyMist/Bulls_and_Cows.git
+cd Bulls_and_Cows
 npm ci
 npm run build
 npm start
